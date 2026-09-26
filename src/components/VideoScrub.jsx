@@ -363,11 +363,11 @@ export default function VideoScrub() {
     <div className="fixed inset-0 z-0 bg-[#0a0a0a]">
       <video ref={fwdRef} src="/videos/optimized.mp4" poster="/photo/hero.webp"
         className={cls} style={{ ...sty, opacity: 1 }}
-        muted playsInline preload="metadata"
+        muted playsInline preload="auto"
         aria-hidden="true" suppressHydrationWarning />
       <video ref={revRef} src="/videos/optimized-rev.mp4"
         className={cls} style={{ ...sty, opacity: 0 }}
-        muted playsInline preload="none"
+        muted playsInline preload="auto"
         aria-hidden="true" suppressHydrationWarning />
       <div className="absolute inset-0 bg-black/35" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/15 to-transparent" />

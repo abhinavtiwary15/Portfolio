@@ -67,7 +67,16 @@ export const profile = {
 
   // ── Assets & URLs ──────────────────────────────────────────
   resumeUrl: "/resume.pdf",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+  siteUrl:
+    process.env.NEXT_PUBLIC_SITE_URL
+      ? (process.env.NEXT_PUBLIC_SITE_URL.startsWith("http")
+          ? process.env.NEXT_PUBLIC_SITE_URL
+          : `https://${process.env.NEXT_PUBLIC_SITE_URL}`)
+      : process.env.NEXT_PUBLIC_VERCEL_URL
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+      : process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "http://localhost:3000",
   logoUrl: "/photo/logo-placeholder.png",
   avatarUrl: "/photo/avatar-placeholder.png",
   ogImage: "/og-image.png",
@@ -127,7 +136,8 @@ export const profile = {
       projectPageHref: "/projects#decisionforge",
       accentColor: "#38bdf8",
       metricBadge: "BigQuery + Gemini Guard | 18% CGST Rec.",
-      placeholderLabel: "Enterprise Financial Architecture & Verifier"
+      placeholderLabel: "Enterprise Financial Architecture & Verifier",
+      image_url: "/projects/decisionforge.png"
     },
     {
       id: "agentguard",
@@ -143,7 +153,8 @@ export const profile = {
       projectPageHref: "/projects#agentguard",
       accentColor: "#c084fc",
       metricBadge: "5 Autonomous Agents | MITRE ATT&CK RAG",
-      placeholderLabel: "Multi-Agent SOC Orchestration Engine"
+      placeholderLabel: "Multi-Agent SOC Orchestration Engine",
+      image_url: "/projects/agentguard.png"
     },
     {
       id: "credit-card-fraud-detection",

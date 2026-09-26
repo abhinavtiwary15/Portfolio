@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiGithub, FiExternalLink, FiLayers, FiCpu, FiDatabase } from "react-icons/fi";
@@ -180,27 +181,46 @@ export default function Work() {
                   </div>
                 </div>
 
-                {/* Right: Abstract Visual Placeholder Banner (Task 4) */}
-                <div className="w-full lg:w-64 h-36 lg:h-auto rounded-2xl bg-black/40 border border-white/10 p-4 flex flex-col justify-between overflow-hidden relative group/banner shrink-0">
-                  <div
-                    className="absolute inset-0 opacity-15 pointer-events-none"
-                    style={{
-                      backgroundImage: `radial-gradient(circle at 50% 50%, ${project.accentColor} 1px, transparent 1px)`,
-                      backgroundSize: "16px 16px",
-                    }}
-                  />
-                  <div className="relative z-10 flex items-center justify-between text-[9px] font-mono text-white/40 uppercase">
-                    <span>Architecture</span>
-                    <span className="text-[#ff6b1a]">Placeholder</span>
+                {/* Right: Real Screenshot or Abstract Visual Placeholder Banner */}
+                {project.image_url ? (
+                  <div className="w-full lg:w-72 h-44 lg:h-auto min-h-[140px] rounded-2xl border border-white/10 overflow-hidden relative group/banner shrink-0">
+                    <Image
+                      src={project.image_url}
+                      alt={`${project.name} screenshot`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 288px"
+                      className="object-cover object-top transition-transform duration-500 group-hover/banner:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute bottom-3 left-3 z-10">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[9px] font-mono tracking-wider uppercase bg-black/60 backdrop-blur-md text-white/90 border border-white/15">
+                        <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: project.accentColor }} />
+                        {project.name}
+                      </span>
+                    </div>
                   </div>
-                  <div className="relative z-10 font-mono text-[10px] text-white/80 bg-black/60 backdrop-blur-sm p-2 rounded border border-white/10">
-                    <span className="text-[#ff6b1a] mr-1">$</span>
-                    {project.metricBadge}
+                ) : (
+                  <div className="w-full lg:w-64 h-36 lg:h-auto rounded-2xl bg-black/40 border border-white/10 p-4 flex flex-col justify-between overflow-hidden relative group/banner shrink-0">
+                    <div
+                      className="absolute inset-0 opacity-15 pointer-events-none"
+                      style={{
+                        backgroundImage: `radial-gradient(circle at 50% 50%, ${project.accentColor} 1px, transparent 1px)`,
+                        backgroundSize: "16px 16px",
+                      }}
+                    />
+                    <div className="relative z-10 flex items-center justify-between text-[9px] font-mono text-white/40 uppercase">
+                      <span>Architecture</span>
+                      <span className="text-[#ff6b1a]">Placeholder</span>
+                    </div>
+                    <div className="relative z-10 font-mono text-[10px] text-white/80 bg-black/60 backdrop-blur-sm p-2 rounded border border-white/10">
+                      <span className="text-[#ff6b1a] mr-1">$</span>
+                      {project.metricBadge}
+                    </div>
+                    <div className="relative z-10 text-[8px] font-mono uppercase tracking-wider text-white/30 truncate">
+                      {project.placeholderLabel}
+                    </div>
                   </div>
-                  <div className="relative z-10 text-[8px] font-mono uppercase tracking-wider text-white/30 truncate">
-                    {project.placeholderLabel}
-                  </div>
-                </div>
+                )}
               </div>
             );
           })}

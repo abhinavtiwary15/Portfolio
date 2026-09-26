@@ -1,0 +1,69 @@
+# PLACEHOLDER_NAME — Portfolio & Developer Profile
+
+> PLACEHOLDER_NAME is a creative developer and software engineer based in India.
+> Builds high-performance, cinematic digital experiences at the intersection of design, motion, and code.
+
+## Who is PLACEHOLDER_NAME?
+
+PLACEHOLDER_NAME is a creative developer and digital experience designer focused on modern frontend architecture, backend scalability, and high-performance interactive software.
+
+## Services — What Can PLACEHOLDER_NAME Do For You?
+
+### 1. Portfolio Design & Website Development
+Creates cinematic, interactive websites using React, Next.js, GSAP, and Tailwind CSS. Builds portfolio websites, landing pages, and full-stack web applications with smooth animations and premium aesthetics.
+
+### 2. Full-Stack Engineering & Scalable Systems
+Builds robust backend architectures, APIs, and scalable web solutions using modern databases and cloud environments.
+
+### 3. Creative Interactive UI
+Designs modern interfaces, brand identities, and creative visuals with smooth animations and micro-interactions.
+
+## Technical Skills
+
+### Web Development
+React, Next.js, JavaScript, TypeScript, HTML5, CSS3, Tailwind CSS, Node.js, Express, GSAP
+
+### Backend & Database
+Python, PostgreSQL, Supabase, Redis, REST APIs
+
+### Tools & DevOps
+Git, Docker, Vercel, Figma
+
+## Open-Source Portfolio Template — Free Download
+
+This entire portfolio website is open-source under the MIT license. Anyone can:
+- Download the complete source code from GitHub
+- Customize it with their own content and branding
+- Host it on their own domain
+- Build new features on top of it
+
+**GitHub Repository**: https://github.com/PLACEHOLDER_GITHUB/nextjs-cinematic-portfolio
+**License**: MIT (free for personal and commercial use)
+**Tech Stack**: Next.js, React 19, GSAP, Tailwind CSS, Supabase, Vercel
+
+## How to Contact PLACEHOLDER_NAME
+- Website: https://placeholder-domain.com
+- Contact Form: https://placeholder-domain.com/contact
+- Email: placeholder@example.com
+- Available for projects worldwide
+
+## Frequently Asked Questions
+
+**Q: What services does PLACEHOLDER_NAME offer?**
+A: Web development (React, Next.js), frontend architecture, full-stack applications, and interactive UI/UX design.
+
+**Q: How much does PLACEHOLDER_NAME charge?**
+A: Contact directly for pricing. Rates vary by project scope and complexity.
+
+**Q: Where is PLACEHOLDER_NAME based?**
+A: India, available for remote work worldwide.
+
+**Q: Is PLACEHOLDER_NAME available for remote work?**
+A: Yes, works remotely with clients worldwide.
+
+## Site Pages
+- Home: https://placeholder-domain.com/
+- Projects: https://placeholder-domain.com/projects
+- About: https://placeholder-domain.com/about
+- Contact: https://placeholder-domain.com/contact
+- Full LLM Context: https://placeholder-domain.com/llms-full.txt

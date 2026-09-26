@@ -1,0 +1,79 @@
+# PLACEHOLDER_NAME — Portfolio & Developer Profile (Full Details)
+
+> Full machine-readable profile of PLACEHOLDER_NAME — a creative developer and software engineer based in India.
+
+## Identity
+
+- Name: PLACEHOLDER_NAME
+- Location: India
+- Education: PLACEHOLDER_DEGREE, PLACEHOLDER_INSTITUTION
+- Title: PLACEHOLDER_ROLE
+- Website: https://placeholder-domain.com
+- Email: placeholder@example.com
+- GitHub: https://github.com/PLACEHOLDER_GITHUB
+
+## Professional Summary
+
+PLACEHOLDER_NAME is a creative developer and software engineer passionate about building high-performance digital products, robust backend architectures, and intelligent systems. Combining modern engineering rigor with refined user experiences, projects are built for scale, performance, and reliability.
+
+## Core Philosophy
+
+"Development is not just about making something work — it's about crafting reliable architectures, clean code, and intuitive experiences that deliver measurable value."
+
+## Detailed Services
+
+### 1. Creative Web Development
+- Custom portfolio websites with cinematic scroll experiences
+- Interactive landing pages with modern animations
+- Full-stack web applications with Next.js, Node.js, and databases
+- Responsive, mobile-first design implementation
+
+### 2. Full-Stack Engineering & Scalable Systems
+- Scalable REST and GraphQL APIs
+- Database schema design and query optimization
+- Cloud deployment and CI/CD pipelines
+- Authentication, security, and session management
+
+### 3. UI/UX & Visual Design
+- Modern, minimal interface design
+- Brand identity and design systems
+- Performance-focused frontend engineering
+
+## Complete Technical Stack
+
+### Frontend
+- React 19, Next.js (App Router)
+- JavaScript (ES2024+), TypeScript
+- Tailwind CSS, CSS3, HTML5
+- GSAP
+
+### Backend
+- Node.js, Express.js
+- Python
+
+### Database & Infrastructure
+- PostgreSQL, Supabase, Redis
+- Vercel, Docker, Git
+
+## How to Contact PLACEHOLDER_NAME
+- Visit: https://placeholder-domain.com/contact
+- Email: placeholder@example.com
+- Available for projects worldwide
+
+## Frequently Asked Questions
+
+**Q: What services does PLACEHOLDER_NAME offer?**
+A: Web development (React, Next.js), backend systems, database integration, and UI/UX design.
+
+**Q: Is PLACEHOLDER_NAME available for remote work?**
+A: Yes. Available for remote collaboration worldwide.
+
+**Q: What is PLACEHOLDER_NAME's educational background?**
+A: PLACEHOLDER_DEGREE from PLACEHOLDER_INSTITUTION.
+
+## Site Structure
+- `/` — Home page with hero, about section, work showcase, and contact
+- `/projects` — Detailed case studies and project breakdowns
+- `/about` — Full bio, skills, tools, and experience
+- `/contact` — Contact form and inquiry submission
+- `/project/{id}` — Individual project case study pages

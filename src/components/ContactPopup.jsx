@@ -11,6 +11,7 @@ import profile from "@/config/profile";
 export default function ContactPopup({ isOpen, onClose }) {
   const [step, setStep]       = useState("choose");
   const [name, setName]       = useState("");
+  const [email, setEmail]     = useState("");
   const [phone, setPhone]     = useState("");
   const [reason, setReason]   = useState("");
   const [status, setStatus]   = useState("idle"); // idle | sending | sent | error
@@ -21,7 +22,7 @@ export default function ContactPopup({ isOpen, onClose }) {
   // Reset on open
   useEffect(() => {
     if (isOpen) {
-      setStep("choose"); setName(""); setPhone(""); setReason(""); setStatus("idle");
+      setStep("choose"); setName(""); setEmail(""); setPhone(""); setReason(""); setStatus("idle");
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -34,14 +35,29 @@ export default function ContactPopup({ isOpen, onClose }) {
   const handleEmail = async (e) => {
     e.preventDefault();
     setStatus("sending");
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email: "", message: reason }),
+        body: JSON.stringify({ name, email, message: reason }),
+        signal: controller.signal,
       });
-      setStatus(res.ok ? "sent" : "error");
-    } catch { setStatus("error"); }
+      clearTimeout(timeoutId);
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) {
+        setStatus("sent");
+        setName("");
+        setEmail("");
+        setReason("");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      clearTimeout(timeoutId);
+      setStatus("error");
+    }
   };
 
   const handleWhatsApp = (e) => {
@@ -139,6 +155,7 @@ export default function ContactPopup({ isOpen, onClose }) {
             ) : (
               <form onSubmit={handleEmail} className="flex flex-col gap-3">
                 <input suppressHydrationWarning className={inputCls} placeholder="Your name" required value={name} onChange={e => setName(e.target.value)} />
+                <input suppressHydrationWarning type="email" className={inputCls} placeholder="Your email address" required value={email} onChange={e => setEmail(e.target.value)} />
                 <textarea suppressHydrationWarning className={inputCls + " resize-none"} rows={4} placeholder="What's the project about?" required value={reason} onChange={e => setReason(e.target.value)} />
                 {status === "error" && <p className="text-red-400 text-xs">Something went wrong. Try again.</p>}
                 <button

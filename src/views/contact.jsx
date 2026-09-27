@@ -44,27 +44,36 @@ export default function ContactPage() {
     }
     setStatus("sending");
     setErrorMsg("");
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: form.name, email: form.contact, message: form.reason }),
+        signal: controller.signal,
       });
-      if (res.ok) {
+      clearTimeout(timeoutId);
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) {
         setStatus("sent");
         setForm({ name: "", contact: "", reason: "" });
         setPhoneNumber("");
+        setTimeout(() => setStatus("idle"), 6000);
       } else if (res.status === 429) {
-        const data = await res.json();
         setStatus("error");
         setErrorMsg(data.error || "Too many messages today. Try again tomorrow.");
+        setTimeout(() => setStatus("idle"), 5000);
       } else {
         setStatus("error");
-        setErrorMsg("Something went wrong. Please try again.");
+        setErrorMsg(data.error || "Something went wrong. Please try again.");
+        setTimeout(() => setStatus("idle"), 4000);
       }
     } catch {
+      clearTimeout(timeoutId);
       setStatus("error");
       setErrorMsg("Something went wrong. Please try again.");
+      setTimeout(() => setStatus("idle"), 4000);
     }
   };
 

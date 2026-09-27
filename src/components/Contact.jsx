@@ -46,16 +46,30 @@ export default function Contact({ standalone = false }) {
     }
 
     setStatus('sending');
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: form.name, email: form.contact, message: form.reason }),
+        signal: controller.signal,
       });
-      setStatus(res.ok ? 'sent' : 'error');
-      if (res.ok) { setForm({ name: '', contact: '', reason: '' }); setPhoneNumber(''); }
+      clearTimeout(timeoutId);
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) {
+        setStatus('sent');
+        setForm({ name: '', contact: '', reason: '' });
+        setPhoneNumber('');
+        setTimeout(() => setStatus('idle'), 6000);
+      } else {
+        setStatus('error');
+        setTimeout(() => setStatus('idle'), 4000);
+      }
     } catch {
+      clearTimeout(timeoutId);
       setStatus('error');
+      setTimeout(() => setStatus('idle'), 4000);
     }
   };
 
